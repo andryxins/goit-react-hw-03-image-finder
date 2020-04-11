@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Searchbar from './components/Searchbar/Searchbar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
@@ -86,7 +86,7 @@ export default class App extends Component {
       modalImg,
     } = this.state;
     return (
-      <Fragment>
+      <>
         <Searchbar
           searchValue={curentSearchQuery}
           handleChange={this.handleChange}
@@ -113,7 +113,7 @@ export default class App extends Component {
             )
           )}
         </main>
-      </Fragment>
+      </>
     );
   }
 }

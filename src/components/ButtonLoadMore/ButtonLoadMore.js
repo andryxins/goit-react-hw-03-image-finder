@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Styles from './ButtonLoadMore.module.css';
 
 const ButtonLoadMore = ({ btnAction }) => (
-  <button onClick={btnAction} type="button" className="Button">
+  <button onClick={btnAction} type="button" className={Styles.Button}>
     Load More
   </button>
 );

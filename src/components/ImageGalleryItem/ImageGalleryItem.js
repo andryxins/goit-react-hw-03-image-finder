@@ -1,25 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Styles from './ImageGalleryItem.module.css';
 
-const ImageGalleryItem = ({ imagesArr, onOpenModalClick }) => {
-  return (
-    <Fragment>
-      {imagesArr.map(({ id, webformatURL, tags }) => (
-        <li
-          onClick={() => onOpenModalClick(id)}
-          key={id}
-          className="ImageGalleryItem"
-        >
-          <img
-            src={webformatURL}
-            alt={tags}
-            className="ImageGalleryItem-image"
-          />
-        </li>
-      ))}
-    </Fragment>
-  );
-};
+const ImageGalleryItem = ({ imagesArr, onOpenModalClick }) => (
+  <>
+    {imagesArr.map(({ id, webformatURL, tags }) => (
+      <li
+        onClick={() => onOpenModalClick(id)}
+        key={id}
+        className={Styles.ImageGalleryItem}
+      >
+        <img
+          src={webformatURL}
+          alt={tags}
+          className={Styles.ImageGalleryItemImage}
+        />
+      </li>
+    ))}
+  </>
+);
 
 ImageGalleryItem.propTypes = {
   imagesArr: PropTypes.arrayOf(
@@ -27,7 +26,7 @@ ImageGalleryItem.propTypes = {
       id: PropTypes.string.isRequired,
       webformatURL: PropTypes.string,
       tags: PropTypes.string,
-    }),
+    }).isRequired,
   ),
   onOpenModalClick: PropTypes.func,
 };

@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+import Styles from './ImageGallery.module.css';
 
-const ImageGallery = ({ images, onOpenModal }) => {
-  return (
-    <ul className="ImageGallery">
-      <ImageGalleryItem imagesArr={images} onOpenModalClick={onOpenModal} />
-    </ul>
-  );
-};
+const ImageGallery = ({ images, onOpenModal }) => (
+  <ul className={Styles.ImageGallery}>
+    <ImageGalleryItem imagesArr={images} onOpenModalClick={onOpenModal} />
+  </ul>
+);
 
 ImageGallery.propTypes = {
   images: PropTypes.array.isRequired,

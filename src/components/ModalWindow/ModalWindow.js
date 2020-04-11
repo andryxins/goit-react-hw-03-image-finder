@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Styles from './ModalWindow.module.css';
 
 export default class ModalWindow extends Component {
   static defaultProps = {
@@ -9,6 +10,7 @@ export default class ModalWindow extends Component {
   static propTypes = {
     openImg: PropTypes.string,
   };
+
   overLayRef = React.createRef();
 
   closeByEsc = e => {
@@ -41,8 +43,8 @@ export default class ModalWindow extends Component {
   render() {
     const { openImg } = this.props;
     return (
-      <div ref={this.overLayRef} className="Overlay">
-        <div className="Modal">
+      <div ref={this.overLayRef} className={Styles.Overlay}>
+        <div className={Styles.Modal}>
           <img src={openImg} alt="" />
         </div>
       </div>

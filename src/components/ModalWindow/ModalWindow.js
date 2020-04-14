@@ -13,19 +13,6 @@ export default class ModalWindow extends Component {
 
   overLayRef = React.createRef();
 
-  closeByEsc = e => {
-    const { onClose } = this.props;
-
-    if (e.code === 'Escape') onClose();
-  };
-
-  closeByClick = e => {
-    const { onClose } = this.props;
-
-    if (e.target !== e.currentTarget) return;
-    onClose();
-  };
-
   componentDidMount() {
     const { current } = this.overLayRef;
 
@@ -39,6 +26,19 @@ export default class ModalWindow extends Component {
     current.removeEventListener('click', this.closeByClick);
     window.removeEventListener('keyup', this.closeByEsc);
   }
+
+  closeByEsc = e => {
+    const { onClose } = this.props;
+
+    if (e.code === 'Escape') onClose();
+  };
+
+  closeByClick = e => {
+    const { onClose } = this.props;
+
+    if (e.target !== e.currentTarget) return;
+    onClose();
+  };
 
   render() {
     const { openImg } = this.props;
